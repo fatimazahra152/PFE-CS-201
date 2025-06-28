@@ -1,0 +1,41 @@
+Sécurité des Tokens et Leurs Risques
+
+Les tokens de sécurité sont des données numériques qui représentent le droit d'un utilisateur ou d'une application à accéder à des ressources spécifiques. Ils sont couramment utilisés dans les systèmes d'authentification et d'autorisation modernes pour permettre l'accès sans avoir à renvoyer des identifiants (nom d'utilisateur/mot de passe) à chaque requête.
+
+Types courants de tokens :
+* **JSON Web Tokens (JWT) :** Tokens compacts et auto-contenus utilisés pour transmettre des informations de manière sécurisée entre les parties. Ils sont souvent utilisés pour l'authentification basée sur les jetons.
+* **Tokens OAuth/OpenID Connect :** Utilisés pour l'autorisation déléguée, permettant à une application d'accéder aux ressources d'un utilisateur sur un autre service (par exemple, "Se connecter avec Google").
+* **Clés API (API Keys) :** Chaînes de caractères uniques utilisées pour identifier un projet ou un utilisateur appelant une API, souvent pour la facturation ou la gestion des quotas.
+* **Tokens de session :** Générés après une connexion réussie pour maintenir l'état d'une session utilisateur sur un site web.
+
+Risques de sécurité associés aux tokens :
+
+1.  **Vol de Token (Token Theft) :**
+    * Si un attaquant parvient à intercepter ou à voler un token valide (par exemple, via du XSS, du Cross-Site Request Forgery - CSRF, ou des attaques sur le réseau), il peut usurper l'identité de l'utilisateur légitime et accéder aux ressources autorisées par ce token.
+
+2.  **Tokens à Longue Durée de Vie (Long-Lived Tokens) :**
+    * Les tokens avec une durée de vie excessivement longue augmentent la fenêtre de risque en cas de vol. Si un token est volé, un attaquant peut l'utiliser pendant une période prolongée.
+
+3.  **Absence de Validation ou Validation Faible :**
+    * Les applications qui ne valident pas correctement les signatures cryptographiques des tokens (comme les JWT) ou qui ignorent leur date d'expiration peuvent être vulnérables à la falsification de tokens.
+
+4.  **Exposition des Tokens dans les URL ou les Logs :**
+    * Passer des tokens directement dans les paramètres d'URL (query strings) peut les exposer dans l'historique du navigateur, les logs du serveur, les logs des proxys ou les référents HTTP, les rendant visibles pour des tiers malveillants.
+
+5.  **Utilisation de Canaux Non Sécurisés :**
+    * L'envoi de tokens sur des connexions HTTP non chiffrées (plutôt que HTTPS) expose les tokens à l'interception par des attaquants ("Man-in-the-Middle").
+
+6.  **Faibles Secrets ou Clés :**
+    * Si les clés utilisées pour signer ou chiffrer les tokens sont faibles, prévisibles ou gérées de manière non sécurisée, les attaquants peuvent les deviner ou les obtenir, leur permettant de générer leurs propres tokens valides.
+
+7.  **Replay Attacks :**
+    * Dans certains contextes, un attaquant pourrait rejouer un token intercepté pour répéter une action, même si le token n'est pas directement compromis pour l'usurpation d'identité.
+
+Mesures d'atténuation :
+* Utiliser HTTPS pour toutes les communications.
+* Stocker les tokens côté client de manière sécurisée (par exemple, HttpOnly cookies pour les tokens de session, Web Storage avec précautions).
+* Utiliser des tokens avec une courte durée de vie et implémenter des mécanismes de rafraîchissement sécurisés.
+* Invalider les tokens ou les sessions lors de la déconnexion ou en cas de détection d'activités suspectes.
+* Valider rigoureusement tous les aspects des tokens (signature, expiration, audience, émetteur) côté serveur.
+* Ne jamais exposer les tokens sensibles dans les URL.
+* Implémenter des mesures de protection contre le vol de session (ex: HttpOnly, Secure flags pour les cookies).

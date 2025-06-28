@@ -1,0 +1,12 @@
+faiss-cpu  # Or faiss-gpu if you have GPU support
+numpy
+# sentence-transformers
+langchain
+langchain-openai
+langchain-community
+pypdf
+chromadb # If you still need it for something else, otherwise remove
+faiss-cpu # Add this line
+tiktoken
+python-dotenv
+unstructured # If you need it for complex document parsing

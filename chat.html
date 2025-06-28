@@ -1,0 +1,131 @@
+   <!DOCTYPE html>
+<html>
+<head>
+<title>PFE-CS-201 AI Chat</title>
+<link rel="stylesheet" href="chat.css">
+<style>
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+background-color: #f0f0f0;
+}
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    header {
+        /* Darker blue from the logo */
+        background-color: #003049;
+        color: white;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    header img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    #chat-log {
+        flex-grow: 1;
+        padding: 16px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .message {
+        padding: 10px;
+        border-radius: 20px;
+        max-width: 80%;
+        clear: both;
+    }
+
+    .user-message {
+        /* Light green from the image */
+        background-color: #d4edda;
+        color: #155724;
+        align-self: flex-end;
+        border-bottom-right-radius: 5px;
+    }
+
+    .ai-message {
+        background-color: #f1f0f0;
+        color: #1a1a1a;
+        align-self: flex-start;
+        border-bottom-left-radius: 5px;
+    }
+
+    .input-area {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-top: 1px solid #ddd;
+    }
+
+    input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        outline: none;
+    }
+
+    button {
+         /* Red from the image */
+        padding: 10px 16px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    button:hover {
+        background-color: #c82333;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<img src="logo.png" alt="PFE-CS-201 Logo">
+<h1>PFE-CS-201 Support</h1>
+</header>
+<div id="chat-log">
+<div class="message ai-message">Hello! How can I help you today?</div>
+</div>
+<div class="input-area">
+<input type="text" id="chat-input" placeholder="Type your message here...">
+<button id="send-button">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+class="lucide lucide-send">
+<path d="m22 2-7 20-4-9-9-4 20-7z"></path>
+<path d="M22 2l-11 13"></path>
+</svg>
+</button>
+</div>
+</div>
+<script src="chat.js"></script>
+</body>
+</html>

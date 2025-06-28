@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "PFE-CS-201",
+  "version": "1.0.0",
+  "description": "Comprehensive web vulnerability scanner that detects security issues and sensitive data exposure",
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "logo.png",
+      "24": "logo.png",
+      "32": "logo.png"
+    },
+    "default_title": "Security Scanner",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://api.ipify.org/",
+    "<all_urls>"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["report-template.html", "chat.html", "chat.js", "chat.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

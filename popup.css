@@ -1,0 +1,102 @@
+body {
+  width: 300px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #000; /* Black background */
+  color: #ccc; /* Light grey text for general content */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.header img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.header span {
+  color: #681111; /* White text for the extension title */
+}
+
+.subheader {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #701919; /* Light grey for "Scan Results" */
+}
+
+.status {
+  margin: 20px 0;
+  min-height: 20px;
+  color: #eee; /* Light grey for status text */
+}
+
+button {
+  background-color: #4CAF50; /* Green for Start Scan button */
+  color: rgb(43, 207, 71);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.progress-container {
+  width: 100%;
+  background: #333; /* Dark grey progress bar background */
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  height: 5px;
+  background: #4285F4; /* Blue progress indicator */
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+.results {
+  text-align: left;
+  margin-top: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: #ccc; /* Light grey for results text */
+}
+
+.result-category {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff4d4d; /* Red color for category names */
+}
+
+.results div {
+  color: #524e4e; /* Light grey for individual result items */
+  margin-bottom: 5px;
+}
+
+/* ... your existing styles ... */
+.aiChatBtn {
+    background-color: #007bff; /* Example blue color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add some spacing */
+}
+
+.aiChatBtn:hover {
+    background-color: #0056b3;
+}

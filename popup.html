@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 350px; /* Adjust width for better layout */
+  padding: 15px;
+  font-family: sans-serif; /* More modern font */
+  text-align: left; /* Align text to the left for better readability */
+  background-color: #222; /* Darker, more modern background */
+  color: #d86363; /* Light text on dark background */
+}
+
+.header {
+  display: flex; /* Use flexbox for logo and title */
+  align-items: center;
+  font-size: 1.5em; /* Slightly larger header */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.header img {
+  width: 32px; /* Adjust logo size */
+  height: 32px;
+  margin-right: 10px;
+}
+
+.subheader {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #aaa; /* Slightly softer subheader color */
+}
+
+.status {
+  margin: 15px 0;
+  min-height: 24px; /* Adjust height */
+  color: #ccc;
+}
+
+button {
+  background-color: #158026; /* Modern blue button */
+  color: white;
+  border: none;
+  padding: 10px 15px; /* Adjust padding */
+  border-radius: 5px; /* More rounded corners */
+  cursor: pointer;
+  margin-right: 5px; /* Add spacing between buttons */
+}
+
+button:hover {
+  background-color: #17d436; /* Darker blue on hover */
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #444; /* Darker progress bar background */
+  border-radius: 5px;
+  margin: 10px 0;
+  height: 8px; /* Adjust progress bar height */
+  overflow: hidden; /* Hide rounded corners of inner bar */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #158026; /* Modern cyan progress color */
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.2s ease-in-out; /* Smoother transition */
+}
+
+.results {
+  text-align: left;
+  margin-top: 15px;
+  max-height: 250px; /* Slightly taller results area */
+  overflow-y: auto;
+  background-color: #333; /* Darker results background */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.result-category {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #eee; /* Light category text */
+  border-bottom: 1px solid #555; /* Subtle separator */
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.critical { color: #ff4d4d; /* Brighter red */ }
+.high { color: #ff8c00; /* More vibrant orange */ }
+.medium { color: #ffd700; /* Gold */ }
+.low { color: #6495ed; /* Cornflower blue */ }
+.info { color: #98fb98; /* Pale green */ }
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="logo.png" alt="Extension Logo"><span>PFE-CS-201</span>
+</div>
+<div class="subheader">Scan Results</div>
+<div class="progress-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+<div class="status" id="statusText">Ready to scan</div>
+<button id="scanBtn">Start Scan</button>
+<button id="aiChatBtn">AI Chat</button>
+<button id="reportBtn">Generate Report</button>
+<div class="results" id="results"></div>
+<script src="popup.js"></script>
+</body>
+</html>
